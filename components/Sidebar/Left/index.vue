@@ -4,7 +4,7 @@
       :class="defaultTransition">
       <nuxt-link to="/public">
         <div class="w-8 h-8">
-          <LogoTwiter />
+          <LogoTwitter />
         </div>
       </nuxt-link>
     </div>

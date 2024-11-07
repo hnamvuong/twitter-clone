@@ -16,6 +16,16 @@ const generateRefreshToken = (user) => {
     });
 };
 
+export const decodeRefreshToken = (token) => {
+    const config = useRuntimeConfig();
+
+    try {
+        return jwt.verify(token, config.jwtRefreshSecret);
+    } catch (e) {
+        return null;
+    }
+}
+
 export const generateTokens = (user) => {
     const accessToken = generateAccessToken(user);
     const refreshToken = generateRefreshToken(user);
@@ -31,4 +41,4 @@ export const sendRefreshToken = (event, token) => {
         httpOnly: true,
         sameSite: true
     });
-}
+};
